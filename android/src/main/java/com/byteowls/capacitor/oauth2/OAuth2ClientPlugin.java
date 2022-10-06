@@ -288,6 +288,7 @@ public class OAuth2ClientPlugin extends Plugin {
         String customHandlerClassname = ConfigUtils.getParam(String.class, call.getData(), PARAM_ANDROID_CUSTOM_HANDLER_CLASS);
         if (customHandlerClassname != null && customHandlerClassname.length() > 0) {
             try {
+                oauth2Options = null;
                 Class<OAuth2CustomHandler> handlerClass = (Class<OAuth2CustomHandler>) Class.forName(customHandlerClassname);
                 OAuth2CustomHandler handler = handlerClass.newInstance();
                 boolean successful = handler.logout(getActivity(), call);
@@ -302,6 +303,7 @@ public class OAuth2ClientPlugin extends Plugin {
                 call.reject(ERR_GENERAL, e);
             }
         } else {
+            oauth2Options = null;
             this.disposeAuthService();
             this.discardAuthState();
             call.resolve();
@@ -327,7 +329,7 @@ public class OAuth2ClientPlugin extends Plugin {
             if (result.getResultCode() == Activity.RESULT_CANCELED) {
                 call.reject(USER_CANCELLED);
             } else {
-                handleAuthorizationRequestActivity(result.getData(), call);
+                //TODO handleAuthorizationRequestActivity(result.getData(), call);
             }
         }
     }
@@ -489,7 +491,7 @@ public class OAuth2ClientPlugin extends Plugin {
     protected void handleOnStop() {
         super.handleOnStop();
         disposeAuthService();
-    }
+    }W
 
     private void disposeAuthService() {
         if (authService != null) {
