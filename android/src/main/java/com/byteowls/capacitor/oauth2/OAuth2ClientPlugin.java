@@ -78,7 +78,7 @@ public class OAuth2ClientPlugin extends Plugin {
     private static final String ERR_ANDROID_RESULT_NULL = "ERR_ANDROID_NO_INTENT";
 
     private static final String ERR_CUSTOM_HANDLER_LOGIN = "ERR_CUSTOM_HANDLER_LOGIN";
-    private static final String ERR_CUSOM_HANDLER_LOGOUT = "ERR_CUSTOM_HANDLER_LOGOUT";
+    private static final String ERR_CUSTOM_HANDLER_LOGOUT = "ERR_CUSTOM_HANDLER_LOGOUT";
 
     private static final String ERR_GENERAL = "ERR_GENERAL";
     private static final String ERR_STATES_NOT_MATCH = "ERR_STATES_NOT_MATCH";
